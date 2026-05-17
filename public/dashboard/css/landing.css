@@ -1,0 +1,298 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+:root {
+            --green-dark: #1B5E20;
+            --green: #2E7D32;
+            --green-light: #4CAF50;
+            --gold: #FFC107;
+        }
+        
+        * { font-family: 'Poppins', sans-serif; }
+        body { overflow-x: hidden; }
+        
+        /* ============================================= */
+        /* NAVBAR                                         */
+        /* ============================================= */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 10px 0;
+            transition: 0.3s;
+            min-height: 72px;
+        }
+		.navbar-collapse {transition: none !important;}
+        .navbar-brand { font-weight: 700; font-size: 1.3rem; color: var(--green-dark) !important; }
+        .navbar-brand img { width: 40px; margin-right: 10px; }
+        .nav-link { font-weight: 500; color: #333 !important; margin: 0 5px; transition: 0.3s; }
+        .nav-link:hover { color: var(--green) !important; }
+        .btn-nav { background: var(--green); color: white !important; border-radius: 25px; padding: 8px 20px !important; }
+        .btn-nav:hover { background: var(--green-dark); }
+        
+        /* ============================================= */
+        /* HERO DENGAN BACKGROUND BERGERAK                */
+        /* ============================================= */
+.hero {
+    position: relative;
+
+    height: 100vh;
+    min-height: 100vh;
+
+    padding-top: 120px;
+    padding-bottom: 80px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    contain: layout paint;
+}
+        
+        .hero-bg-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        /* ============================================= */
+        /* HERO DENGAN BACKGROUND BERGERAK                */
+        /* ============================================= */
+        .hero {
+            position: relative;
+            padding: 120px 0 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(46,125,50,0.2) 0%, rgba(46,125,50,0.5) 100%);
+        }
+
+        .hero-bg-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* Hanya 1 gambar - lebih besar agar tidak terpotong */
+        .hero-bg-slide {
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            animation-duration: 15s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            will-change: transform;
+
+            transform: translateZ(0);
+
+            backface-visibility: hidden;
+
+            contain: strict;
+        }
+
+        /* 📐 GAMBAR 1: Drone - Zoom dari kiri bawah → ke kanan atas, berulang */
+        .hero-bg-slide:nth-child(1) {
+            background-image: url('../images/padi/background1.webp');
+            animation-name: droneDiagonalRepeat;
+            transform-origin: bottom left;
+        }
+
+        @keyframes droneDiagonalRepeat {
+            0%   { transform: scale(1.05) translate(0, 0); }
+            50%  { transform: scale(1.08) translate(10px, -10px); }
+            100% { transform: scale(1.05) translate(0, 0); }
+        }
+        
+        /* Hero Content */
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .hero h1 span { color: var(--gold); }
+        .hero p { font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); margin: 20px 0; }
+        
+        /* Buttons */
+        .btn-hero {
+            background: var(--gold);
+            color: #333;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-hero:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); color: #333; }
+        .btn-outline-hero {
+            border: 2px solid white;
+            color: white;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+            background: transparent;
+            transition: 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-outline-hero:hover { background: white; color: var(--green); }
+        
+        .hero-img { animation: float 3s ease-in-out infinite; }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-20px)} }
+
+        /* ============================================= */
+/* JAM DIGITAL - ANGKA KALKULATOR                 */
+/* ============================================= */
+.clock-container {
+    margin: 15px 0 25px 0;
+}
+
+.digital-clock {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.clock-segment {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    min-width: 60px;
+    text-align: center;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5), 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.clock-segment span {
+    font-family: 'Courier New', 'Digital', monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00ff41;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3);
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.clock-colon {
+    font-family: 'Courier New', monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00ff41;
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.clock-date {
+    margin-top: 8px;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.weather-card-transparent {
+    min-height: 450px;
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Tanda Tangan AAS */
+.signature-aas {
+    margin-top: 5px;
+    display: inline-block;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+        
+        /* ============================================= */
+        /* SECTIONS                                       */
+        /* ============================================= */
+        .section { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-weight: 700; color: var(--green-dark); font-size: 2.2rem; margin-bottom: 10px; }
+        .section-title p { color: #666; font-size: 1.05rem; }
+        
+        .feature-card {
+            background: white; border-radius: 20px; padding: 30px; text-align: center;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08); transition: 0.3s; height: 100%; border: none;
+        }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+        .feature-icon {
+            width: 70px; height: 70px; background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-radius: 20px; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; font-size: 2rem; color: var(--green);
+        }
+        .feature-card h5 { font-weight: 600; color: #333; margin-bottom: 10px; }
+        .feature-card p { color: #666; font-size: 0.9rem; }
+        
+        .stats-section { background: linear-gradient(135deg, var(--green-dark), var(--green)); color: white; padding: 60px 0; }
+        .stat-item { text-align: center; padding: 20px; }
+        .stat-item h3 { font-size: 2.5rem; font-weight: 700; }
+        .stat-item p { opacity: 0.9; font-size: 1rem; }
+        
+        .step-card { text-align: center; padding: 30px; }
+        .step-number { width: 50px; height: 50px; background: var(--green); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.3rem; margin: 0 auto 20px; }
+        .step-card h5 { font-weight: 600; }
+        
+        .cta-section { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); border-radius: 20px; padding: 50px; text-align: center; margin: 80px 0; }
+        .cta-section h2 { font-weight: 700; color: var(--green-dark); }
+        
+        .footer { background:#14532d; color: white; padding: 30px 0; }
+        .footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+        .footer a:hover { color: white; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .hero { min-height: 100vh;padding: 100px 0 60px; text-align: center; }
+            .hero-img { max-width: 250px !important; margin-top: 30px; }
+            .section { padding: 50px 0; }
+            .section-title h2 { font-size: 1.6rem; }
+        }
+
+.footer-copy{
+    color: rgba(255,255,255,0.88);
+    font-size: 0.85rem;
+}
+.footer-desc{
+    color: rgba(255,255,255,0.9);
+    line-height: 1.7;
+}
+.weather-location{
+    opacity:0.9;
+    margin-bottom:8px;
+    font-weight:400;
+    font-size:1rem;
+}
+.weather-status{
+    color:white;
+    margin:0;
+    font-weight:400;
+    font-size:1.3rem;
+}
+.footer-title{
+    font-size:1.2rem;
+    font-weight:700;
+    margin-bottom:10px;
+}
+

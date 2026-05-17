@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Folder sensitif
+Disallow: /parsba/
+
+# Halaman admin & petani
+Disallow: /admin/
+Disallow: /petani/
+
+# File sensitif
+Disallow: /.env
+Disallow: /.git/
+
+# Sitemap
+Sitemap: https://parsba.byethost24.com/sitemap.xml

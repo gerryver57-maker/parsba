@@ -1,0 +1,148 @@
+@media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+        height: auto;
+    }
+
+    /* Container full width */
+    .container {
+        width: 100%;
+        min-height: auto;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    /* ❗ MATIKAN sistem 2 kolom */
+    .form-container {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        z-index: 1 !important;
+    }
+
+    .sign-in,
+    .sign-up {
+        width: 100% !important;
+        left: 0 !important;
+    }
+
+    /* Disable animasi slide desktop */
+    .container.active .sign-in,
+    .container.active .sign-up {
+        transform: none !important;
+    }
+
+    /* ❗ Sembunyikan toggle panel (tidak cocok di mobile) */
+    .toggle-container {
+        display: none;
+    }
+
+    /* Form padding lebih nyaman */
+    .container .formw {
+        padding: 20px;
+        gap: 8px;
+    }
+
+    /* Input lebih nyaman disentuh */
+    .container input {
+        padding: 12px;
+        font-size: 14px;
+        margin: 6px 0;
+    }
+
+    /* Button full width (lebih UX mobile) */
+    .container button,
+    .container .butt,
+    input[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    /* Typography dibesarkan biar readable */
+    .container h3 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .container span {
+        font-size: 12px;
+        text-align: center;
+        display: block;
+    }
+
+    .container p {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    /* Background lebih ringan */
+    .animated-bg {
+        transform: scale(1.2);
+        animation: zoomMove 25s ease-in-out infinite alternate;
+    }
+}
+
+/* ================= MOBILE TOGGLE BUTTON ================= */
+.mobile-toggle {
+    display: none;
+    justify-content: space-between;
+    margin: 10px 20px;
+    gap: 10px;
+}
+
+.mobile-toggle button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #77ba57;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ================= SCROLL AREA ================= */
+@media (max-width: 768px) {
+
+    /* aktifkan tombol switch */
+    .mobile-toggle {
+        display: flex;
+    }
+
+    /* container jadi scrollable */
+    .container {
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    /* form register & login tidak saling menumpuk */
+    .form-container {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .sign-up {
+        display: none;
+    }
+
+    .container.show-register .sign-up {
+        display: block;
+    }
+
+    .container.show-register .sign-in {
+        display: none;
+    }
+
+    /* scroll nyaman */
+    .container {
+        scrollbar-width: thin;
+    }
+}

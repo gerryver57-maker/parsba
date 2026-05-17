@@ -1,0 +1,160 @@
+/* ================= PHASE / UI COMPONENT (tetap dari kamu) ================= */
+
+.phase-card {
+    transition: transform 0.3s;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 100%;
+}
+
+.phase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.phase-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.progress-phase {
+    height: 10px;
+    border-radius: 5px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #28a745, #ffc107, #dc3545);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -3.1rem;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+}
+
+.active-phase {
+    border: 3px solid #0d6efd;
+}
+
+/* ================= NAV SECTION TITLE ================= */
+
+.nav-small-cap {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem 0.5rem 1rem;
+    margin-top: 0.5rem;
+}
+
+.nav-small-cap i {
+    font-size: 0.5rem;
+    color: #adb5bd;
+}
+
+.nav-small-cap span {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #6c757d;
+    margin-left: 0.5rem;
+}
+
+/* ================= BADGE ================= */
+
+.sidebar-item .badge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+}
+
+/* ================= SUB MENU ================= */
+
+.first-level {
+    padding-left: 2.5rem;
+}
+
+.first-level .sidebar-item {
+    margin: 0.25rem 0;
+}
+
+.first-level .sidebar-link {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+/* ================= HOVER + ACTIVE ================= */
+
+.sidebar-item:hover .sidebar-link {
+    background-color: rgba(43, 94, 43, 0.1);
+    border-radius: 0.5rem;
+}
+
+.sidebar-item.active .sidebar-link {
+    background-color: #2b5e2b;
+    color: white;
+}
+
+/* ================= 🔥 SIDEBAR FIX CORE ================= */
+
+.left-sidebar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* penting agar scroll tidak bocor */
+}
+
+/* wrapper scroll utama */
+.sidebar-nav {
+    flex: 1;
+    overflow-y: auto;
+    height: 100%;
+    padding-bottom: 2rem;
+}
+
+/* FIX SIMPLEBAR (WAJIB kalau pakai data-simplebar) */
+.simplebar-wrapper,
+.simplebar-content-wrapper,
+.simplebar-content {
+    height: 100% !important;
+}
+
+/* UL agar bisa panjang sampai bawah */
+.sidebar-nav ul {
+    min-height: 100%;
+}
+
+/* scrollbar stabil */
+.sidebar-nav {
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+}
+
+/* ================= ROOT SIDEBAR ================= */
+
+#sidebar {
+    height: 100vh;
+    overflow: hidden;
+}

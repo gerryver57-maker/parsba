@@ -1,0 +1,190 @@
+
+    .agricultural-calendar-container {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .calendar-grid {
+        display: grid;
+        grid-template-rows: auto;
+        gap: 1px;
+        border: 1px solid #dee2e6;
+        border-radius: 0.25rem;
+        overflow: hidden;
+    }
+    
+    .calendar-weekdays {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .calendar-week {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        min-height: 120px;
+    }
+    
+    .calendar-day {
+        border: 1px solid #e0e0e0;
+        padding: 8px;
+        position: relative;
+        background-color: white;
+    }
+    
+    .calendar-day.other-month {
+        background-color: #f8f9fa;
+        color: #6c757d;
+    }
+    
+    .calendar-day.today {
+        background-color: #e7f5ff;
+    }
+    
+    .day-number {
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: right;
+    }
+    
+    .today-badge {
+        font-size: 0.6rem;
+        background-color: #0d6efd;
+        color: white;
+        padding: 2px 4px;
+        border-radius: 3px;
+        margin-left: 5px;
+    }
+    
+    .day-activities {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        max-height: 80px;
+        overflow-y: auto;
+    }
+    
+    .activity-badge {
+        font-size: 0.75rem;
+        padding: 3px 6px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        transition: all 0.2s;
+    }
+    
+    .activity-badge:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .activity-badge.completed {
+        opacity: 0.7;
+        text-decoration: line-through;
+    }
+    
+    .activity-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .activity-spraying {
+        background-color: rgba(13, 110, 253, 0.1);
+        color: #0d6efd;
+        border-left: 3px solid #0d6efd;
+    }
+    
+    .activity-fertilizing {
+        background-color: rgba(25, 135, 84, 0.1);
+        color: #198754;
+        border-left: 3px solid #198754;
+    }
+    
+    .activity-watering {
+        background-color: rgba(13, 202, 240, 0.1);
+        color: #0dcaf0;
+        border-left: 3px solid #0dcaf0;
+    }
+    
+    .activity-harvest {
+        background-color: rgba(255, 193, 7, 0.1);
+        color: #ffc107;
+        border-left: 3px solid #ffc107;
+    }
+    
+    .activity-pruning {
+        background-color: rgba(220, 53, 69, 0.1);
+        color: #dc3545;
+        border-left: 3px solid #dc3545;
+    }
+    
+    .modal-backdrop {
+        opacity: 0.5;
+    }
+    
+    /* Custom scrollbar for activities */
+    .day-activities::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    .day-activities::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    .day-activities::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 2px;
+    }
+    
+    .day-activities::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+     /* Tambahan style untuk fase pertumbuhan */
+    .phase-indicator {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+    
+    .phase-start i {
+        font-size: 1.2rem;
+        background-color: white;
+        border-radius: 50%;
+        padding: 3px;
+        box-shadow: 0 0 0 2px currentColor;
+    }
+    
+    .planting-badge {
+        font-size: 0.6rem;
+        background-color: #28a745;
+        color: white;
+        padding: 2px 4px;
+        border-radius: 3px;
+        margin-left: 5px;
+        display: inline-block;
+    }
+    
+    /* Warna latar berdasarkan fase */
+    .phase-success { background-color: rgba(40, 167, 69, 0.05); }
+    .phase-primary { background-color: rgba(13, 110, 253, 0.05); }
+    .phase-warning { background-color: rgba(255, 193, 7, 0.05); }
+    .phase-info { background-color: rgba(23, 162, 184, 0.05); }
+    .phase-danger { background-color: rgba(220, 53, 69, 0.05); }
+    .phase-secondary { background-color: rgba(108, 117, 125, 0.05); }
+    
+    /* Highlight hari tanam */
+    .calendar-day [class^="phase-"] {
+        border-left: 4px solid;
+    }
+    
+    .calendar-day.phase-success { border-left-color: #28a745; }
+    .calendar-day.phase-primary { border-left-color: #0d6efd; }
+    .calendar-day.phase-warning { border-left-color: #ffc107; }
+    .calendar-day.phase-info { border-left-color: #17a2b8; }
+    .calendar-day.phase-danger { border-left-color: #dc3545; }
+    .calendar-day.phase-secondary { border-left-color: #6c757d; }
